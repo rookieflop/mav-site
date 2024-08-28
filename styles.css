@@ -1,0 +1,203 @@
+* {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1.2rem;
+  color: var(--fontPrimary);
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 400;
+  font-family: "Roboto", Arial, sans-serif;
+}
+:root {
+  --bgColor: #333;
+  --navBgColor: #555;
+  --navSelectedBgColor: #444;
+  --carouselNavActive: #fff7;
+  --carouselNav: #fff3;
+  --fontPrimary: #eee;
+}
+body {
+  background-color: var(--bgColor);
+  box-sizing: border-box;
+  min-width: 480px;
+  min-height: 2000px;
+  top: 10px;
+}
+
+#test, #drop0, #down-arrow0 {
+  position: absolute;
+  display: none;
+}
+#background-blur {
+  position: absolute;
+}
+#down-arrow1, #down-arrow2{
+  position: absolute;
+  transform: rotate(0deg);
+  clip-path: polygon(18% 40%, 50% 53%, 82% 40%, 100% 40%, 50% 60%, 0 40%);
+  background-color: var(--fontPrimary);
+  width: 15px;
+  height: 100%;
+  margin: 2px;
+  transition: all 0.2s ease-in-out;
+}
+.down-arrow-rotated {
+  transform: rotate(180deg) !important;
+}
+
+#nav {
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 11;
+  justify-content: center;
+}
+#nav-background {
+  background-color: var(--navBgColor);
+  z-index: 7;
+  position: absolute;
+  width: 100%;
+  height: 55px;
+  top: -5px;
+}
+.nav-div {
+  background-color: var(--navBgColor);
+  opacity: 1;
+  height: 50px;
+  padding: 0 35px;
+  line-height: 50px;
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease-in-out;
+}
+.nav-div:hover {
+  background-color: var(--navSelectedBgColor) !important; 
+}
+.active-nav {
+  background-color: var(--navSelectedBgColor) !important;
+}
+
+#logo-img {
+  width: 80px;
+  height: 100%;
+  display: block;
+  position: absolute;
+  z-index: 11;
+  left:0;
+}
+#nav-hamburger {
+  height: 50px;
+  width: 80px;
+  justify-content: right;
+  display: flex;
+  opacity: 0.0;
+  right: 0;
+  position: absolute;
+  z-index: 8;
+  transition: opacity 0.15s ease-in-out;
+  pointer-events: none;
+}
+.nav-drop {
+  background-color: var(--navSelectedBgColor);
+  height: 200px;
+  width: 100%;
+  top: -280px;
+  opacity: 0.0;
+  position: absolute;
+  transition: all 0.1s ease-out;
+  z-index: 5;
+  top: 50px;
+  z-index: 6;
+  opacity: 1.0;
+}
+.nav-hidden {
+  top: -280px !important;
+  z-index: 5 !important;
+  opacity: 0.0 !important;
+  transition: all 0.3s ease-in-out !important;
+}
+
+@media (max-width: 1100px) {
+  .nav-div {
+    opacity: 0;
+    pointer-events: none;
+  }
+  #nav-hamburger {
+    opacity: 1;
+    pointer-events: all;
+  }  
+}
+
+.drop-center {
+  display: flex;
+  position: relative;
+  width: calc(40% + 300px);
+  height: 85%;
+  top: 7%;
+  left: calc(30% - 150px);
+  justify-content: space-evenly;
+}
+.drop-content {
+  width: 300px;
+}
+
+#drop-carousel {
+  background-color: #354;
+  width: 350px;
+  position: relative;
+  transition: all .1s;
+}
+
+#drop-carousel-left, #drop-carousel-right {
+  width: 80px;
+  height: 100%;
+  position: absolute;
+  cursor: pointer;
+}
+
+#drop-carousel-right {
+  right:0;
+}
+#drop-carousel-right div {
+  clip-path: polygon(35% 25%, 35% 75%, 70% 50%);
+  background-color: #fff7;
+  width: 100%;
+  height: 100%;
+}
+#drop-carousel-left div{
+  clip-path: polygon(65% 25%, 65% 75%, 30% 50%);
+  background-color: #fff7;
+  width: 100%;
+  height: 100%;
+}
+
+#carousel-text {
+  border:1px orange solid;
+}
+
+#carousel-dot-div {
+  display: flex;
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.carousel-dot {
+  position: relative;
+  display: inline-block;
+  background-color: #fff3;
+  width: 35px;
+  height: 15px;
+  z-index: 11;
+  user-select: none;
+  cursor: pointer;
+  margin: 4px;
+  transition: all 0.3s;
+}
+#dot0 {
+  background-color: var(--carouselNavActive);
+}
